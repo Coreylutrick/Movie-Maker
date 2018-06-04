@@ -1,5 +1,6 @@
 let categories = [];
 let movieElems = [];
+let budget = 0;
 
 const getCategories = () =>
 {
@@ -21,10 +22,22 @@ const setMovieElements = (elementArray) =>
   movieElems = elementArray;
 };
 
+const getBudget = () =>
+{
+  return budget;
+};
+
+const setBudget = (userBudget) =>
+{
+  budget = userBudget;
+};
+
 module.exports =
 {
   getCategories,
   setCategories,
   getMovieElements,
   setMovieElements,
+  getBudget,
+  setBudget,
 };
