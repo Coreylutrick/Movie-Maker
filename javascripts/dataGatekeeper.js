@@ -1,16 +1,25 @@
 const data = require('./data');
 const xhr = require('./xhrCalls');
+const catDom = require('./CatDom');
+
+let categories = [];
+
+const setCategories = (categoryArray) =>
+{
+  categories = categoryArray;
+};
 
 const whenCategoriesLoad = function ()
 {
   const categoryData = JSON.parse(this.responseText).categories;
-  data.setCategories(categoryData);
+  setCategories(categoryData);
 };
 
 const whenElementsLoad = function ()
 {
   const movieElems = JSON.parse(this.responseText).elements;
   data.setMovieElements(movieElems);
+  catDom(movieElems, categories);
 };
 
 const badLoad = function ()
