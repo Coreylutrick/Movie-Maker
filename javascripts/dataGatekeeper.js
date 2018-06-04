@@ -1,6 +1,7 @@
 const data = require('./data');
 const xhr = require('./xhrCalls');
 const catDom = require('./CatDom');
+const budget = require('./Budget');
 
 let categories = [];
 
@@ -31,6 +32,7 @@ const initializer = () =>
 {
   xhr.loadCategories(whenCategoriesLoad, badLoad);
   xhr.loadElements(whenElementsLoad, badLoad);
+  budget();
 };
 
 module.exports = initializer;
