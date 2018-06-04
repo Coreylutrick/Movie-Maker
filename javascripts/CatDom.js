@@ -1,8 +1,10 @@
+const checkboxEvent = require('./events');
 const outputDiv = document.getElementById('left');
 
 const printToDomCat = (movieElem, categories) =>
 {
   outputDiv.innerHTML = domString(movieElem, categories);
+  checkboxEvent.checkedEvent();
 };
 
 const domString = (movieElem, categories) =>
@@ -19,7 +21,7 @@ const domString = (movieElem, categories) =>
       if (element.categoryId === category.id)
       {
         string += `<div class='elemOptions col-s-4'>`;
-        string +=   `<input type='checkbox' id=${element.id}>`;
+        string +=   `<input type='checkbox' class='check' id=${element.id}>`;
         string +=   `<label class='option'>${element.name}</label>`;
         string += `</div>`;
       }
