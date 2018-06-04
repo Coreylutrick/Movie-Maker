@@ -1,18 +1,34 @@
-const outputDiv = document.getElementById('checkBoxes');
+const outputDiv = document.getElementById('left');
 
-const printToDom = (categories) =>
+const printToDomCat = (movieElem, categories) =>
 {
-  outputDiv.innerHTML = domString(categories, movieElems);
+  outputDiv.innerHTML = domString(movieElem, categories);
 };
 
-const domString = (categories) =>
+const domString = (movieElem, categories) =>
 {
   let string = '';
-  categories.forEach(category =>
+  string += `<div class='movieParts'>`;
+  categories.forEach((category) =>
   {
-    string += `<div id='${category.id}'>`;
-    string += ``;
+    string +=   `<div class='cat' id='${category.id}'>`;
+    string +=     `<h2>${category.categoryName}</h2>`;
+    string +=     `<div class='row boxes'>`;
+    movieElem.forEach ((element) =>
+    {
+      if (element.categoryId === category.id)
+      {
+        string += `<div class='elemOptions col-s-4'>`;
+        string +=   `<input type='checkbox' id=${element.id}>`;
+        string +=   `<label class='option'>${element.name}</label>`;
+        string += `</div>`;
+      }
+    });
+    string +=     `</div>`;
+    string +=   `</div>`;
   });
+  string += `</div>`;
+  return string;
 };
 
-module.exports = printToDom;
+module.exports = printToDomCat;

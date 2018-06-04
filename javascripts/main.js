@@ -1,1 +1,3 @@
-console.log('poop');
+const initializer = require('./dataGatekeeper');
+
+initializer();
