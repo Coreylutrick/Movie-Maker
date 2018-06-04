@@ -5,3 +5,7 @@ body{
 #movieParts {
   border: 5px solid red;
 }
+
+.elemOptions {
+  margin-left: 20px;
+}
